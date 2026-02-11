@@ -15,6 +15,8 @@ const LeftPanel = dynamic(
 );
 
 
+
+
 /* ===================== SECTIONS ===================== */
 import { MyProfileSection } from "@/app/components/userprofile/sections/MyProfileSection";
 import { OrdersSection } from "@/app/components/userprofile/sections/OrdersSection";
@@ -25,7 +27,7 @@ import { PaymentsSection } from "@/app/components/userprofile/sections/PaymentsS
 import { ReturnsSection } from "@/app/components/userprofile/sections/ReturnsSection";
 import { NotificationsSection } from "@/app/components/userprofile/sections/NotificationsSection";
 import { SupportSection } from "@/app/components/userprofile/sections/SupportSection";
-// import SettingsSection  from "@/app/components/userprofile/sections/SettingsSection";
+import { SettingsSection } from "@/app/components/userprofile/sections/SettingsSection";
 
 /* ===================== TYPES ===================== */
 export type Section =
@@ -37,8 +39,8 @@ export type Section =
   | "payments"
   | "returns"
   | "notifications"
-  | "settings"
-  | "support";
+  | "support"
+  | "settingsSection";
 
 /* ===================== COMPONENT ===================== */
 export default function HeaderWrapper() {
@@ -59,17 +61,29 @@ export default function HeaderWrapper() {
   /* ===================== SECTION RENDER ===================== */
   const renderSection = () => {
     switch (section) {
-      case "orders": return <OrdersSection />;
-      case "addresses": return <AddressesSection />;
-      case "wishlist": return <WishlistSection />;
-      case "cart": return <CartSection />;
-      case "payments": return <PaymentsSection />;
-      case "returns": return <ReturnsSection />;
-      case "notifications": return <NotificationsSection />;
-      case "support": return <SupportSection />;
-      // default: return <MyProfileSection />;
+      case "orders":
+        return <OrdersSection />;
+      case "addresses":
+        return <AddressesSection />;
+      case "wishlist":
+        return <WishlistSection />;
+      case "cart":
+        return <CartSection />;
+      case "payments":
+        return <PaymentsSection />;
+      case "returns":
+        return <ReturnsSection />;
+      case "notifications":
+        return <NotificationsSection />;
+      case "support":
+        return <SupportSection />;
+      case "settingsSection":
+        return <SettingsSection />;
+      default:
+        return <MyProfileSection />;
     }
   };
+  
 
   /* 🔥 DEVICE CHECK */
   const isMobile = () => window.innerWidth < 1024; // lg breakpoint
