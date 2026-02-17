@@ -81,6 +81,7 @@ export default function HeaderWrapper() {
         return <MyProfileSection />;
     }
   };
+  
 
   /* 🔥 DEVICE CHECK */
   const isMobile = () => window.innerWidth < 1024; // lg breakpoint
